@@ -48,21 +48,21 @@
 
         <TextView
             android:id="@+id/m0"
-            android:background="#B9F8D3"
+            android:background="#0000FF"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
 
         <TextView
             android:id="@+id/m1"
-            android:background="#FFFBE7"
+            android:background="#00FF00"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center"/>
 
         <TextView
             android:id="@+id/m2"
-            android:background="#B9F8D3"
+            android:background="#0000FF"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
@@ -81,21 +81,21 @@
 
         <TextView
             android:id="@+id/m3"
-            android:background="#FFFBE7"
+            android:background="#00FF00"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
 
         <TextView
             android:id="@+id/m4"
-            android:background="#E78EA9"
+            android:background="#FF0000"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
 
         <TextView
             android:id="@+id/m5"
-            android:background="#FFFBE7"
+            android:background="#00FF00"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
@@ -114,21 +114,21 @@
 
         <TextView
             android:id="@+id/m6"
-            android:background="#B9F8D3"
+            android:background="#0000FF"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
 
         <TextView
             android:id="@+id/m7"
-            android:background="#FFFBE7"
+            android:background="#00FF00"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
 
         <TextView
             android:id="@+id/m8"
-            android:background="#B9F8D3"
+            android:background="#0000FF"
             android:layout_columnWeight="1"
             android:layout_height="80dp"
             android:gravity="center" />
@@ -146,7 +146,7 @@
             android:layout_height="80dp"
             android:gravity="center"
             android:layout_columnSpan="5"
-            android:text="Green: 0 Pink: 1 Cream: 2"/>
+            android:text="Red: 1 Green: 2 Blue: 3"/>
 
         <TextView
             android:background="@color/white"

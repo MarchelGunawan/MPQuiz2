@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView asn1, asn2, asn3, asn4, asn5, asn6, asn7, asn8, asn9;
     TextView guesstimer;
     EditText et1;
+    int counter = 0;
     int i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         asn9 = findViewById(R.id.asn9);
         guesstimer = findViewById(R.id.guesstimer);
         et1 = findViewById(R.id.et1);
+        et1.setEnabled(false);
 
     }
 
@@ -85,17 +88,12 @@ public class MainActivity extends AppCompatActivity {
             box8.setVisibility(View.VISIBLE);
             box9.setVisibility(View.VISIBLE);
             guesstimer.setText("Win");
+            counter = 0;
+            et1.setText("");
         }else{
-            box1.setVisibility(View.VISIBLE);
-            box2.setVisibility(View.VISIBLE);
-            box3.setVisibility(View.VISIBLE);
-            box4.setVisibility(View.VISIBLE);
-            box5.setVisibility(View.VISIBLE);
-            box6.setVisibility(View.VISIBLE);
-            box7.setVisibility(View.VISIBLE);
-            box8.setVisibility(View.VISIBLE);
-            box9.setVisibility(View.VISIBLE);
-            guesstimer.setText("Lose");
+            counter++;
+            guesstimer.setText("Lose, Player attempt:"+counter);
+            et1.setText("");
         }
     }
 
@@ -109,6 +107,15 @@ public class MainActivity extends AppCompatActivity {
         box7.setVisibility(View.VISIBLE);
         box8.setVisibility(View.VISIBLE);
         box9.setVisibility(View.VISIBLE);
+        asn1.setBackgroundResource(R.drawable.stroke_background);
+        asn2.setBackgroundResource(R.drawable.stroke_background);
+        asn3.setBackgroundResource(R.drawable.stroke_background);
+        asn4.setBackgroundResource(R.drawable.stroke_background);
+        asn5.setBackgroundResource(R.drawable.stroke_background);
+        asn6.setBackgroundResource(R.drawable.stroke_background);
+        asn7.setBackgroundResource(R.drawable.stroke_background);
+        asn8.setBackgroundResource(R.drawable.stroke_background);
+        asn9.setBackgroundResource(R.drawable.stroke_background);
         Random rand = new Random();
         String cBox1 = random_color(rand.nextInt(3));
         String cBox2 = random_color(rand.nextInt(3));
@@ -128,38 +135,40 @@ public class MainActivity extends AppCompatActivity {
         box7.setBackgroundColor(Color.parseColor(cBox7));
         box8.setBackgroundColor(Color.parseColor(cBox8));
         box9.setBackgroundColor(Color.parseColor(cBox9));
-        tmr();
+        if(tmr()){
+            et1.setEnabled(true);
+        }
     }
 
     public String random_color1(char a){
-        if(a == '0'){
-            // green
-            return "#B9F8D3";
-        }else if(a == '1'){
-            // pink
-            return "#E78EA9";
+        if(a == '1'){
+            // red
+            return "#FF0000";
         }else if(a == '2'){
-            // cream
-            return "#FFFBE7";
+            // green
+            return "#00FF00";
+        }else if(a == '3'){
+            // blue
+            return "#0000FF";
         }
         return "error";
     }
 
     public String random_color(int a){
         if(a == 0){
-            // green
-            return "#B9F8D3";
+            // red
+            return "#FF0000";
         }else if(a == 1){
-            // pink
-            return "#E78EA9";
+            // green
+            return "#00FF00";
         }else if(a == 2){
-            // cream
-            return "#FFFBE7";
+            // blue
+            return "#0000FF";
         }
         return "error";
     }
 
-    private void tmr(){
+    private boolean tmr(){
         i = 0;
         boolean t = true;
         Handler hnd = new Handler();
@@ -180,7 +189,6 @@ public class MainActivity extends AppCompatActivity {
                             box7.setVisibility(View.INVISIBLE);
                             box8.setVisibility(View.INVISIBLE);
                             box9.setVisibility(View.INVISIBLE);
-                            break;
                         }
                     }catch (InterruptedException e){
                         e.printStackTrace();
@@ -195,5 +203,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         new Thread(runnable).start();
+        return true;
     }
 }
